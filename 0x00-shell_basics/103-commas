@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lacmpX1
+ls -lacmpv1
