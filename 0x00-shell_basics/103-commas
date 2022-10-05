@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lacmpv1
+ls -lacmpv
