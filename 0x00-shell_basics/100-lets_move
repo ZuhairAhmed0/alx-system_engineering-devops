@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -rf [[:upper:]]* /tmp/u
+mv -rf [[:upper:]]* /tmp/u
