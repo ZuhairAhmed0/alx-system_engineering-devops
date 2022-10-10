@@ -1,2 +1,2 @@
 #!/bin/bash
-grep "bin" list | wc -w
+grep -c "bin" list 
