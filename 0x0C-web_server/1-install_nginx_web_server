@@ -1,23 +1,7 @@
 #!/usr/bin/env bash
+# Installs Nginx
 
-# Install Nginx
 sudo apt-get update
-sudo apt-get -y install nginx
-
-# Replace default Nginx configuration with custom configuration
-cat > /etc/nginx/sites-available/default <<EOF
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html;
-
-    location / {
-        echo "Hello World!";
-    }
-}
-EOF
-
-# Restart Nginx
-sudo service nginx restart
+sudo apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.html
+sudo service nginx start
