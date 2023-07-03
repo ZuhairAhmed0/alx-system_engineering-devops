@@ -1,17 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Update package list
 sudo apt-get update
 
 # Install Nginx
 sudo apt-get install nginx -y
-
-# Configure Nginx to listen on port 80
-sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
-
-# Restart Nginx
-sudo killall nginx
-sudo /usr/sbin/nginx
-
-# Create index.html file with "Hello World!" content
-echo "Hello World!" | sudo tee /var/www/html/index.html
+udo ufw allow 22
+sudo ufw allow 80
+sudo ufw --force enable
+sudo ufw status
+systemctl status nginx
+echo 'Holberton School' | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+sudo service nginx restart
