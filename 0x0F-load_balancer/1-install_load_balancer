@@ -10,4 +10,4 @@ sudo sed -i '40 a \\nbackend http_back\n\tbalance roundrobin\n\tserver web-01 54
 sudo sed -i '10 i  ENABLED=1' /etc/default/haproxy
 
 # Restart HAproxy
-sudo systemctl restart haproxy
+sudo service haproxy restart
