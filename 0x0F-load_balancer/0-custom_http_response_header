@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Add custom response header to Nginx configuration
+sudo sed -i '/http {/a \\tadd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+
+# Restart Nginx to apply changes
+sudo systemctl restart nginx
