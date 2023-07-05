@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
-echo "Hello Holberton" > /var/www/html/index.html
+# Fix the bug in apache 2
+sed -i '/Listen 80/a Listen 0.0.0.0:8080' /etc/apache2/ports.conf
+sed -i '/VirtualHost>/a <VirtualHost *:8080>\nServerAdmin webmaster@localhost\nDocumentRoot /var/www/html\n</VirtualHost>' /etc/apache2/sites-available/000-default.conf
 service apache2 restart
-docker run -p 8080:80 -d -it holbertonschool/265-0
