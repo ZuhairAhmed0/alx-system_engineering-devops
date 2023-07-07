@@ -44,7 +44,10 @@ frontend www-https
         bind *:443 ssl crt /etc/haproxy/certs/www.zohair.tech.pem
         reqadd X-Forwarded-Proto:\ https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+	use_backend le-certbot-backend if letsencrypt-acl
         default_backend web-backend
+backend le-certbot-backend
+	server letsencrypt 127.0.0.1:8888
 backend web-backend
         redirect scheme https if !{ ssl_fc }
         balance roundrobin
