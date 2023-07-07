@@ -49,7 +49,7 @@ frontend www-https
 backend le-certbot-backend
 	server letsencrypt 127.0.0.1:8888
 backend web-backend
-        redirect scheme https if !{ ssl_fc }
+	redirect scheme https code 301 if !{ ssl_fc }
         balance roundrobin
         server 172490-web-01 54.160.64.210:80 check
         server 172490-web-02 100.25.202.36:80 check
